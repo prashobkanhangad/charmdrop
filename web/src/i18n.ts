@@ -110,7 +110,7 @@ const dictionary = {
       coffee: "Buy me a coffee",
       support:
         "The app is free on every Mac. If CharmDrop made you smile, you can buy me a coffee.",
-      note: "Ad-hoc signed build for now — Gatekeeper may ask you to open it from the context menu until we notarize.",
+      note: "This build is not notarized yet. If macOS says Apple could not verify CharmDrop, open System Settings → Privacy & Security, scroll to Security, and click Open Anyway. Then drag it into Applications.",
     },
     thanks: {
       pageTitle: "Download — CharmDrop",
@@ -216,7 +216,7 @@ const dictionary = {
       coffee: "मुझे कॉफ़ी पिलाएँ",
       support:
         "ऐप हर Mac पर मुफ़्त है। अगर CharmDrop ने मुस्कान दी, तो एक कॉफ़ी पिला सकते हैं।",
-      note: "अभी ऐड-हॉक साइन है — नोटरीज़ होने तक Gatekeeper संदर्भ मेनू से खोलने को कह सकता है।",
+      note: "यह बिल्ड अभी नोटरीज़ नहीं है। अगर macOS कहे कि Apple CharmDrop की पुष्टि नहीं कर सका, तो System Settings → Privacy & Security खोलें, Security तक स्क्रोल करें, Open Anyway दबाएँ। फिर उसे Applications में खींचें।",
     },
     thanks: {
       pageTitle: "डाउनलोड — CharmDrop",
@@ -322,7 +322,7 @@ const dictionary = {
       coffee: "Invítame un café",
       support:
         "La app es gratis en cualquier Mac. Si CharmDrop te arrancó una sonrisa, puedes invitarme un café.",
-      note: "Firma ad hoc por ahora: Gatekeeper puede pedirte que la abras desde el menú contextual hasta que la notariemos.",
+      note: "Esta build aún no está notariada. Si macOS dice que Apple no pudo verificar CharmDrop, abre Ajustes del Sistema → Privacidad y seguridad, baja hasta Seguridad y pulsa Abrir de todos modos. Luego arrástrala a Applications.",
     },
     thanks: {
       pageTitle: "Descargar — CharmDrop",
