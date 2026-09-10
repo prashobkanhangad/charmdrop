@@ -1,0 +1,11 @@
+.build/
+build/
+.DS_Store
+*.xcuserstate
+web/node_modules/
+web/dist/
+web/public/downloads/*.dmg
+web/private/downloads/*.dmg
+web/.env
+web/.env.*
+!web/.env.example

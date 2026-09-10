@@ -1,0 +1,40 @@
+---
+import { copy, pathFor, type Locale } from "../i18n";
+import { buyMeACoffeeUrl } from "../support";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = copy(locale);
+---
+
+<div class="mx-auto min-h-svh max-w-2xl px-5 py-10">
+  <a href={pathFor(locale)} class="text-sm text-gold hover:text-lemon">CharmDrop</a>
+
+  <h1 class="mt-10 font-display text-4xl text-cream">{text.thanks.heading}</h1>
+  <p class="mt-6 text-lg leading-relaxed text-cream-dim">{text.thanks.body}</p>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a
+      href="/api/download"
+      class="inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink hover:bg-lemon"
+    >
+      {text.thanks.download}
+    </a>
+    <a
+      href={buyMeACoffeeUrl}
+      data-bmc-open
+      class="inline-flex items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-sm font-semibold text-cream hover:border-gold"
+    >
+      <span aria-hidden="true">☕</span>
+      {text.thanks.coffee}
+    </a>
+  </div>
+  <a
+    href={pathFor(locale)}
+    class="mt-8 inline-flex text-sm text-cream-dim hover:text-cream"
+  >
+    {text.thanks.back}
+  </a>
+</div>

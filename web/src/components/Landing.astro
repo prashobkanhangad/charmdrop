@@ -1,0 +1,193 @@
+---
+import { copy, pathFor, type Locale } from "../i18n";
+import { buyMeACoffeeUrl } from "../support";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = copy(locale);
+---
+
+<div class="relative overflow-x-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(232,197,71,0.16),transparent_36%),radial-gradient(circle_at_80%_10%,rgba(47,122,77,0.35),transparent_40%)]"
+  >
+  </div>
+
+  <header
+    class="sticky top-0 z-30 border-b border-white/5 bg-ink/75 backdrop-blur-xl"
+  >
+    <div
+      class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3"
+    >
+      <a href={pathFor(locale)} class="flex items-center gap-2.5">
+        <img
+          src="/favicon.png"
+          alt=""
+          width="28"
+          height="28"
+          class="size-7 rounded-lg shadow-sm"
+        />
+        <span class="font-display text-lg tracking-tight text-cream"
+          >CharmDrop</span
+        >
+      </a>
+      <nav class="hidden items-center gap-6 text-sm text-cream-dim sm:flex">
+        <a href="#features" class="hover:text-cream">{text.nav.features}</a>
+        <a href="#charms" class="hover:text-cream">{text.nav.charms}</a>
+        <a href="#pricing" class="hover:text-cream">{text.nav.buy}</a>
+      </nav>
+    </div>
+  </header>
+
+  <canvas
+    id="charm-stage"
+    class="pointer-events-none fixed inset-0 z-20 h-svh w-full touch-none"
+    aria-label={text.hero.try}></canvas>
+
+  <section class="relative isolate min-h-[100svh]">
+
+    <div
+      class="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-end px-5 pb-16 pt-28 md:items-center md:pt-20"
+    >
+      <div
+        class="max-w-xl rounded-3xl border border-white/5 bg-ink/55 p-6 shadow-2xl backdrop-blur-md md:p-8"
+      >
+        <p
+          class="text-xs font-medium uppercase tracking-[0.22em] text-gold-deep"
+        >
+          {text.hero.eyebrow}
+        </p>
+        <h1
+          class="mt-3 font-display text-4xl leading-[1.08] text-cream sm:text-5xl md:text-6xl"
+        >
+          {text.hero.heading}
+        </h1>
+        <p class="mt-5 max-w-md text-base leading-relaxed text-cream-dim">
+          {text.hero.body}
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="#pricing"
+            class="rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-gold/20 hover:bg-lemon"
+          >
+            {text.hero.buy}
+          </a>
+          <p class="text-sm text-cream-dim">{text.hero.try}</p>
+        </div>
+        <p class="mt-4 text-xs text-cream-dim/80">{text.hero.requirement}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="relative z-10 mx-auto max-w-6xl px-5 py-24">
+    <h2 class="max-w-2xl font-display text-3xl text-cream sm:text-4xl">
+      {text.features.heading}
+    </h2>
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        text.features.items.map((item) => (
+          <article class="rounded-2xl border border-white/10 bg-ink-soft/80 p-5">
+            <h3 class="font-display text-xl text-gold">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cream-dim">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="charms" class="relative z-10 mx-auto max-w-6xl px-5 pb-24">
+    <h2 class="font-display text-3xl text-cream sm:text-4xl">
+      {text.charms.heading}
+    </h2>
+    <p class="mt-3 max-w-xl text-cream-dim">{text.charms.body}</p>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {
+        text.charms.items.map((item) => (
+          <button
+            type="button"
+            data-charm={item.id}
+            class="group rounded-2xl border border-white/10 bg-ink-soft/80 p-5 text-left transition hover:border-gold/40 hover:bg-leaf/40"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl text-cream">{item.name}</h3>
+              <span class="rounded-full border border-gold/30 px-2.5 py-0.5 text-[11px] uppercase tracking-wider text-gold">
+                {item.ritual}
+              </span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-cream-dim">{item.body}</p>
+          </button>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="pricing" class="relative z-10 mx-auto max-w-6xl px-5 pb-24">
+    <div
+      class="overflow-hidden rounded-3xl border border-gold/20 bg-[linear-gradient(135deg,rgba(232,197,71,0.14),rgba(7,20,15,0.2))] p-8 md:p-12"
+    >
+      <div class="flex flex-wrap items-center gap-3">
+        <h2 class="font-display text-3xl text-cream sm:text-5xl">
+          {text.pricing.heading}
+        </h2>
+        <span
+          class="rounded-full bg-gold px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-ink"
+        >
+          {text.pricing.free}
+        </span>
+      </div>
+      <p class="mt-4 max-w-xl text-cream-dim">{text.pricing.body}</p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href="/api/download"
+          class="inline-flex rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-gold/20 hover:bg-lemon"
+        >
+          {text.pricing.download}
+        </a>
+        <a
+          href={buyMeACoffeeUrl}
+          data-bmc-open
+          class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-ink/40 px-5 py-2.5 text-sm font-semibold text-cream hover:border-gold hover:bg-ink/70"
+        >
+          <span aria-hidden="true">☕</span>
+          {text.pricing.coffee}
+        </a>
+      </div>
+      <p class="mt-4 max-w-lg text-sm text-cream-dim">{text.pricing.support}</p>
+      <p class="mt-6 max-w-lg text-xs leading-relaxed text-cream-dim/80">
+        {text.pricing.note}
+      </p>
+    </div>
+  </section>
+
+  <footer
+    class="relative z-10 border-t border-white/5 px-5 py-8 text-sm text-cream-dim"
+  >
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>{text.footer.tagline}</p>
+      <a href={pathFor(locale, "/privacy")} class="hover:text-cream"
+        >{text.privacy.nav}</a
+      >
+    </div>
+  </footer>
+</div>
+
+<script>
+  import { mountCharmStage, type CharmId } from "../scripts/charm-stage";
+
+  const canvas = document.getElementById("charm-stage");
+  if (canvas instanceof HTMLCanvasElement) {
+    const stage = mountCharmStage(canvas);
+    document.querySelectorAll<HTMLButtonElement>("[data-charm]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.charm as CharmId | undefined;
+        if (id) stage.setCharm(id);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+  }
+</script>

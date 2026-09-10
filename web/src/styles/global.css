@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --color-ink: #07140f;
+  --color-ink-soft: #0d2218;
+  --color-leaf: #1b4a32;
+  --color-moss: #2f7a4d;
+  --color-gold: #e8c547;
+  --color-gold-deep: #c9a227;
+  --color-lemon: #f5d21a;
+  --color-cream: #f6f1e6;
+  --color-cream-dim: #cfc6b4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-gold) 70%, transparent);
+  color: var(--color-ink);
+}

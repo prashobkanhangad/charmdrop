@@ -1,0 +1,9 @@
+---
+import Base from "../../layouts/Base.astro";
+import ThanksPage from "../../components/ThanksPage.astro";
+import { copy } from "../../i18n";
+---
+
+<Base locale="es" title={copy("es").thanks.pageTitle}>
+  <ThanksPage locale="es" />
+</Base>

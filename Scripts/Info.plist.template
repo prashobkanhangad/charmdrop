@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>__APP_NAME__</string>
+	<key>CFBundleDisplayName</key>
+	<string>__APP_NAME__</string>
+	<key>CFBundleExecutable</key>
+	<string>__APP_NAME__</string>
+
+	<!-- CHANGE ME before distribution: your reverse-DNS bundle identifier. -->
+	<key>CFBundleIdentifier</key>
+	<string>__BUNDLE_ID__</string>
+
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>__MARKETING_VERSION__</string>
+	<key>CFBundleVersion</key>
+	<string>__BUILD_VERSION__</string>
+
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+
+	<!-- Menu bar accessory: no Dock icon and no default window at launch. -->
+	<key>LSUIElement</key>
+	<true/>
+
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSSupportsAutomaticGraphicsSwitching</key>
+	<true/>
+
+	<key>NSHumanReadableCopyright</key>
+	<string>__COPYRIGHT__</string>
+
+	<!--
+	  URL scheme registration. Incoming URLs are parsed by DeepLink and routed
+	  through AppStateManager: show, hide, toggle, ritual, reset, charm/<id>
+	  and settings.
+	-->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>__BUNDLE_ID__</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>__URL_SCHEME__</string>
+			</array>
+		</dict>
+	</array>
+
+	<!--
+	  Sparkle 2 configuration.
+
+	  CHANGE ME before distribution:
+	    * SUFeedURL  - the HTTPS URL of your appcast.xml
+	    * SUPublicEDKey - the EdDSA public key printed by Sparkle's
+	                      generate_keys tool
+	  Both are intentionally left as placeholders: a real-looking but wrong feed
+	  URL is worse than an obviously unset one. See DISTRIBUTION.md.
+	-->
+	<key>SUFeedURL</key>
+	<string>SUFeedURL_PLACEHOLDER</string>
+	<key>SUPublicEDKey</key>
+	<string>SUPublicEDKey_PLACEHOLDER</string>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+</dict>
+</plist>
