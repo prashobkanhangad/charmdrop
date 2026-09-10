@@ -1,5 +1,6 @@
 .build/
 build/
+.vercel/
 .DS_Store
 *.xcuserstate
 web/node_modules/
